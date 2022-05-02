@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding class="bg-images">
+  <ion-list-header>
+    <h2><b>Product List</b></h2>
+    
+  </ion-list-header>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          <ion-label>
+            <h2><b>Tomatos</b></h2>
+            <p> Quantity: 5<br>Price: $2.99</p>
+            <img
+              src="https://www.gardeningknowhow.com/wp-content/uploads/2020/11/beefsteak-tomato.jpg"
+              width="250" height="200" />
+          </ion-label>
+          <ion-checkbox color="primary" checked slot="start"></ion-checkbox>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-label>
+            <h2><b>Oranges</b></h2>
+            <p>Quantity: 6 <br>Price: $3.99 </p>
+            <img
+              src="https://static.independent.co.uk/2021/01/30/12/iStock-1131608539or.jpg?quality=75&width=982&height=726&auto=webp"
+              width="250" height="200" />
+          </ion-label>
+          <ion-checkbox color="primary" checked slot="start"></ion-checkbox>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          <ion-label>
+            <h2><b>Avocado</b></h2>
+            <p>Quantity: 2 <br>Price: $1.99</p>
+            <img
+              src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/how-to-store-avocados-1648487568.jpg?crop=0.913xw:0.911xh;0.0306xw,0.0712xh&resize=640:*"
+              width="250" height="200" />
+          </ion-label>
+          <ion-checkbox color="primary" checked slot="start"></ion-checkbox>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-label>
+            <h2><b>Comcumber</b></h2>
+            <p>Quantity: 4<br>Price: $2.99 </p>
+            <img
+              src="https://alishmart.se/wp-content/uploads/2020/12/Cucumber-lebanese-39.90.jpg"
+              width="250" height="200" />
+          </ion-label>
+          <ion-checkbox color="primary" checked slot="start"></ion-checkbox>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+
+  
+  <h3 class="no-item" text-center *ngIf="loadItems().length === 0">
+    No item available on the list!    
+  </h3>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of loadItems(); let i = index">
+      <ion-item>
+        <h2>{{item.name}}</h2>
+        <p>{{item.quantity}}</p>
+      </ion-item>
+      <ion-item-options>
+        <button (click)="editItem(item, i)" ion-button color="primary" icon-start>
+          <ion-icon name="create"></ion-icon>
+          Edit
+        </button>
+
+        <button (click)="shareItem(item, i)" ion-button color="light" icon-start>
+          <ion-icon name="share"></ion-icon>
+          Share
+        </button>
+
+        <button (click)="removeItem(item, i)" ion-button color="secondary" icon-start>
+          <ion-icon name="trash"></ion-icon>
+          Done
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab bottom right>
+    <button (click)="addItem()" ion-fab mini>
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+  <p><b>Please enter your card info after selecting your food item</b></p>
+
+  <ion-item>
+    <ion-label position="stacked"></ion-label>
+    <ion-input placeholder="Card Number" type="number"></ion-input>
+    <ion-input placeholder="Exp Date" type="number"></ion-input>
+    <ion-input placeholder="Security Code" type="password"></ion-input>
+    <ion-input placeholder="Address Line 1" type="text"></ion-input>
+    <ion-input placeholder="City"  type="text"></ion-input>
+    <ion-input placeholder="State"  type="text"></ion-input>
+    <ion-input placeholder="Zip Code"  type="text"></ion-input>
+  </ion-item>
+  
+</ion-content>

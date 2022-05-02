@@ -1,0 +1,11 @@
+page-home {
+
+    h3.no-item {
+        color: map-get($colors, 'custom');
+    }
+    .bg-images {
+        background-image: url('https://img.freepik.com/free-vector/white-gold-geometric-pattern-background-vector_53876-140726.jpg?size=626&ext=jpg&ga=GA1.2.1804685100.1637884800');
+        background-repeat: no-repeat;
+        background-position: center;
+            background-size: contain;}
+}
